@@ -1,34 +1,66 @@
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"type": "cppbuild",
-			"label": "C/C++: g++.exe build active file",
-			"command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
-			"args": [
-				"-fdiagnostics-color=always",
-				"-g",
-				"${file}",
-				"-I",
-				"${MSMPI_INC}",
-				"-L",
-				"${MSMPI_LIB64}",
-				"-lmsmpi",
-				"-lcurl",
-				"-o",
-				"${fileDirname}\\${fileBasenameNoExtension}.exe"
-			],
-			"options": {
-				"cwd": "${fileDirname}"
-			},
-			"problemMatcher": [
-				"$gcc"
-			],
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
-			"detail": "compiler: C:\\msys64\\ucrt64\\bin\\g++.exe"
-		}
-	]
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compilar Serial",
+            "type": "process",
+            "command": "C:/msys64/ucrt64/bin/g++.exe",
+            "args": [
+                "-std=c++17",
+                "-O2",
+                "src/serial.cpp",
+                "src/descarga.cpp",
+                "src/procesamiento.cpp",
+                "src/matriz.cpp",
+                "-lcurl",
+                "-o",
+                "serial.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": "build"
+        },
+        {
+            "label": "Compilar Paralelo",
+            "type": "process",
+            "command": "C:/msys64/ucrt64/bin/g++.exe",
+            "args": [
+                "-std=c++17",
+                "-O2",
+                "src/paralelo.cpp",
+                "src/comunicacion.cpp",
+                "src/descarga.cpp",
+                "src/procesamiento.cpp",
+                "src/matriz.cpp",
+                "-I",
+                "${env:MSMPI_INC}",
+                "-L",
+                "${env:MSMPI_LIB64}",
+                "-lmsmpi",
+                "-lcurl",
+                "-o",
+                "paralelo.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": "build"
+        },
+        {
+            "label": "Compilar Todo",
+            "dependsOn": [
+                "Compilar Serial",
+                "Compilar Paralelo"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
 }
