@@ -1,0 +1,17 @@
+# A Christmas Carol
+https://raw.githubusercontent.com/GITenberg/A-Christmas-Carol_46/master/46-0.txt
+
+# A Tale of Two Cities
+https://raw.githubusercontent.com/GITenberg/A-Tale-of-Two-Cities_98/master/98-0.txt
+
+# Hamlet
+https://raw.githubusercontent.com/GITenberg/Hamlet-Prince-of-Denmark_1524/master/1524-0.txt
+
+# Romeo and Juliet
+https://raw.githubusercontent.com/GITenberg/Romeo-and-Juliet_1513/master/1513-0.txt
+
+# Oliver Twist
+https://raw.githubusercontent.com/GITenberg/Oliver-Twist_730/master/730.txt
+
+# The Merchant of Venice
+https://raw.githubusercontent.com/GITenberg/The-Merchant-of-Venice_1515/master/1515.txt
